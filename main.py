@@ -30,6 +30,6 @@ if __name__ == "__main__":
       },
     )
     print(calc_1.tax_amount_inclusive)
-  except stripe._error.InvalidRequestError:
+  except stripe._error.customer_tax_location_invalid:
     print("Invalid Address")
 
