@@ -1,3 +1,5 @@
+# Creates a UI to directly enter address to stripe tax, for debugging purposes
+
 import tkinter as tk
 from tkinter import messagebox
 
@@ -8,7 +10,7 @@ class UserAddress:
 
         self.root.title("Address Input")
 
-        # Create a label and entry for each part of the address
+        # Creates labels and txt entry fields for each part of the address
         labels = ["Street Address", "City", "State", "Postal Code", "Country"]
         self.entries = {}
 
@@ -21,14 +23,14 @@ class UserAddress:
             
             self.entries[label] = entry
 
-        # Access the individual entries
+        # Allows for access to the inputs
         self.street_entry = self.entries["Street Address"]
         self.city_entry = self.entries["City"]
         self.state_entry = self.entries["State"]
         self.postal_code_entry = self.entries["Postal Code"]
         self.country_entry = self.entries["Country"]
 
-        # Create a submit button
+        # Creates a submit button
         submit_button = tk.Button(root, text="Submit", command=self.submit_address)
         submit_button.pack(pady=20)
 
@@ -44,7 +46,8 @@ class UserAddress:
             messagebox.showinfo("Address Submitted", 
                                 f"Street Address: {street}\nCity: {city}\nState: {state}\nPostal Code: {postal_code}\nCountry: {country}")
             self.address_current = [street, city, state, postal_code, country]
-            self.root.quit()  # Close the application after submission
+            self.root.quit()  
+            # Closes the UI after submission
         else:
             messagebox.showwarning("Input Error", "Please enter all parts of the address.")
 
